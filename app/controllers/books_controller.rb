@@ -2,7 +2,8 @@ class BooksController < ApplicationController
 	 skip_before_action :verify_authenticity_token
 	def index
 		@booklist =['Jungle book', 'Tarzan', 'The iron giant']
-		@books2 = Book.all
+		#@books2 = Book.all
+		@books2 = Book.released
 	end
 	def show
 		@book = Book.find(params[:id])
@@ -33,6 +34,12 @@ class BooksController < ApplicationController
 		@book.save
 		redirect_to @book
 	end
+	def destroy
 
+		@book = Book.find(params[:id])
+		@book.destroy
+		redirect_to books_path
+
+	end
 
 end

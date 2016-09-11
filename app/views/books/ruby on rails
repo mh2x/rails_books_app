@@ -194,3 +194,25 @@ book.save
 
        resources   :movies
 
+     
+9/11/16 --- [ -    - ]
+
+1. Code refactoring and resuing forms / code
+2. How to delete
+3. Custom queries and Sorting
+    
+    rails c > Book.all.count
+    Book.order("released_on")
+    Book.order("id desc")
+
+    Book.find_by(title: "Tarzan")
+
+    Book.where(rating: "2")
+  
+    Book.where.not(rating: "2")
+
+
+4. Adding new fields
+5. Changing layouts - adding headers and footers
+
+

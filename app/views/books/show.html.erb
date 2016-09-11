@@ -9,7 +9,8 @@
 </ul>
 
 <br>
-<%= link_to("Edit Book", edit_book_path) %>
+<%= link_to("[ Edit Book ]", edit_book_path) %> 
+<%= link_to("[ Delete Book ]", book_path(@book), method: :delete, data: {confirm: "Are you sure?"} ) %>
 <hr/>
 <%= link_to("Back to full list of books", root_path) %>
 
