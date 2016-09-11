@@ -1,0 +1,50 @@
+
+<h1>Books</h1>
+
+<!-- <ul>
+		<li>Jungle book</li>
+		<li>Tarzan</li>
+		<li>The iron giant</li>	
+</ul> -->
+
+<h2>test</h2>
+
+
+<%= Time.now %>
+
+<br>
+
+
+<%=@booklist %>
+
+
+<ul>
+	<% @booklist.each do |book| %>
+	   <li> <%= book %></li>
+	<% end %>
+</ul>
+
+<%= link_to("Add new book...", new_book_path) %>
+
+<h1> The following list comes from MySQL DB</h1>
+
+
+<table>
+  <tr>
+    <th>Book Title</th>
+    <th>Rating</th> 
+    <th>Gross</th>
+    <th>Released On</th>
+    <th>Description</th>
+    
+  </tr>
+ 	<% @books2.each do |book2| %>
+	   <tr> 
+	   	<td><h3><%= link_to(book2.title, book_path(book2)) %></h3></td>
+	   	<td><%= book2.rating %></td>
+	   	<td>$<%= book2.total_gross %></td>
+	   	<td><%= book2.released_on %></td>
+	   	<td><%= book2.description %></td>
+	   </tr>
+	<% end %>
+</table>

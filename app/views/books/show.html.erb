@@ -1,0 +1,15 @@
+
+<h1>Book Title: <%=@book.title %></h1>
+
+<ul>
+	<li>Rating:  <%= @book.rating %></li>
+   	<li>Gross:   $<%= @book.total_gross %></li>
+   	<li>Release Date:   <%= @book.released_on %></li>
+   	<li>Description:   <%= @book.description %></li>
+</ul>
+
+<br>
+<%= link_to("Edit Book", edit_book_path) %>
+<hr/>
+<%= link_to("Back to full list of books", root_path) %>
+

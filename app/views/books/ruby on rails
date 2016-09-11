@@ -1,0 +1,196 @@
+
+Ruby on Rails 8.27.16
+======================
+
+on bash> gcc --version
+download ruby:
+> curl -L https://get.rvm.io | bash -s stable
+
+To start using RVM you need to run `source /Users/mh2x/.rvm/scripts/rvm`
+
+ruby version management is installer manager for Ruby
+
+now we download a ruby version
+
+rvm install 2.3.0
+
+[to show ruby current version]
+rvm current 
+
+==========================
+
+to verify installation type ruby -v
+
+irb for interactive ruby 
+
+> exit to quit
+
+Create a file:
+touch ruby_fun_1.rb (Docs/ruby)
+
+
+===== Installing rails
+
+gem install rails --version 5.0.0 --no-ri  --no-rdoc
+
+
+==== building a new rails 
+
+rails new <name>
+
+=== launching the website
+
+rails s
+
+=== create a route
+  modify routers.rb (found under config and called routes.rb)
+  add new route
+
+==== create controller
+
+rails generate controller books
+
+==== to create a view
+  right click on app | view | books and create a new file with .erb extension (embedded ruby)
+  for example: index.html.erb
+
+==== Create model <no spaces>
+
+rails g model book title:string rating:string total_gross:decimal
+
+==== to delete
+ rails d model book
+
+
+ === run migration in rails to create db
+
+ rails db:migrate
+
+
+ ==== to access db from rails
+
+ rails console
+
+ you can try Book.all
+
+
+ ==== create new book
+ book = Book.new
+
+ book.title ="..."
+ ...
+ book.save    --> this saves to DB ( can be used to update too)
+
+ or you can do
+ 
+ Book.create(title:"Tarzan", rating:"3", total_gross:74000)
+ Book.create(title:"The Iron Giant", rating:"5", total_gross:3474000)
+
+
+ ==== to find and delete a record by id
+
+ x=Book.find_by(id:3)
+ x.destroy
+
+=== adding new columns to existing database
+
+rails g migration  addFieldsToBooks description:text released_on:date 
+
+then run it:
+rails db:migrate
+
+===== check rails db migration status
+db:migrate:status
+
+
+==== reload from db
+
+rails console
+reload!
+
+
+========updating books
+
+book = Book.find_by(id:1)
+book.description =""
+book.released_on = ""
+book.save
+
+
+===== 9/4/16 learning CRUD operations
+
+[] to find all routes in your project, type this inside the project folder:
+
+	rails routes
+
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Prefix Verb URI Pattern          Controller#Action
+ 	books 	GET  /books(.:format)     books#index
+       		GET  /books/:id(.:format) books#show
+
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+[] to know path and uri to your resouces, from rails console do something like this:
+   app.books_path   --> /books
+   app.books_url    --> full URL
+
+[] Adding back button to book page
+
+	<%= link_to("Back to full list of books", books_path) %>
+
+[] Adding prefix to unnamed route
+   change this:
+   get "books/:id" => "books#show"
+
+   to this:
+   get "books/:id" => "books#show", as: "book"
+
+   to test it, run rails routes
+
+   now go to "console" and do this:
+
+   app.book_path(1)
+   which prints:  => "/books/1"
+
+
+ [] change main page (index.html.erb) to make titles as links:
+    <td><h3><%= link_to(book2.title, book_path(book2)) %></h3></td>
+	
+
+ [] to change default page from the Yay! Ruby default one to your own page
+    modify routes.rb and include a root route like the following:
+
+    root "boosk#index"
+
+[] now we can change the back link to go to root instead of movies
+  <%= link_to("Back to full list of books", books_path) %>
+
+
+ [] Adding edit page
+
+    add route:
+    get "books/:id/edit" => "books#edit"
+
+    add method inside controller called "edit"
+
+	def edit
+		@book = Book.find(params[:id])
+	end
+
+    now create a new view called "edit.html.erb":
+    <h1>Editing <%= @book.title %></h1> 
+
+    ...
+
+    [] updating existing resources
+
+       add a new route to routes.rb
+       patch "books/:id" => "books#update"
+
+   [] debugging with rails
+      you can use the word keyword fail in your code
+    
+    [] to define all routes and avoid having to manually do routes, you can use:
+
+       resources   :movies
+
