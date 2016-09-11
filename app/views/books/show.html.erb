@@ -6,11 +6,16 @@
    	<li>Gross:   $<%= @book.total_gross %></li>
    	<li>Release Date:   <%= @book.released_on %></li>
    	<li>Description:   <%= @book.description %></li>
+   	<li>Cover:  <%= @book.img_file_name %></li>
+   	<li>Page Count:  <%= @book.page_count %></li>   	
 </ul>
 
 <br>
 <%= link_to("[ Edit Book ]", edit_book_path) %> 
-<%= link_to("[ Delete Book ]", book_path(@book), method: :delete, data: {confirm: "Are you sure?"} ) %>
+
+<%= link_to "[ Delete Book ]", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <hr/>
+
 <%= link_to("Back to full list of books", root_path) %>
 

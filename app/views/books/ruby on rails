@@ -208,11 +208,25 @@ book.save
     Book.find_by(title: "Tarzan")
 
     Book.where(rating: "2")
-  
+
+    Book.where(rating: ["4", "2"])
+
     Book.where.not(rating: "2")
 
+    Book.where("total_gross >= 100")
 
-4. Adding new fields
+    Book.where("released_on <= ?", Time.now).order("released_on desc")
+
+4. Adding new fields [migrations]
+
+rails g migration addMorefieldsToBooks img_file_name:string page_count:decimal 
+
+rails db:migrate
+rails db:migrate:status
+
+if you make mistakes, you can rollback like this:
+rails db:rollback
+
 5. Changing layouts - adding headers and footers
 
 
