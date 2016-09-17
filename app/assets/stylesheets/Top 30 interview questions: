@@ -1,0 +1,76 @@
+Top 30 interview questions:
+http://www.csharpstar.com/top-30-oops-interview-questions/
+
+[] What is SOLID?
+  knows it but doesn't remember
+
+[] Is string a value type or a reference type?
+
+Confused between reference and value type
+
+[] Difference between value and reference
+
+[] What is MVC pattern? Have you used it?
+
+[] Are you still writing code? Do you love it?
+
+[] Do you do code review? how many issues do people find in your code?
+
+[] How do you react to people criticizing your code/documents?
+
+Why is the Single Responsibility Principle important?
+What is Inversion of Control? How does that relate to dependency injection?
+
+
+What Source Control systems have you worked with?
+
+[] What is Continuous Integration?  Have you used it and why is it important?
+
+[] What do you do when you get stuck with a problem you can't solve?
+
+[] When do you know your code is ready for production?
+
+[] Describe what an Interface is and how it’s different from a Class?
+
+[] What is the difference between a Debug and Release build? Is there a significant speed difference? Why or why not?
+
+
+[] How do you initiate a string without escaping each backslash?
+	You put an @ sign in front of the double-quoted string.
+	String ex = @"This has a carriage return\r\n"
+
+[] What is the difference between a struct and a class?
+	Structs cannot be inherited. Structs are passed by value and not by reference. Structs are stored on the stack not the heap. The result is better performance with Structs.
+
+
+[] What is a singleton?
+A singleton is a design pattern used when only one instance of an object is created and shared; that is, it only allows one instance of itself to be created. Any attempt to create another instance simply returns a reference to the first one. Singleton classes are created by defining all class constructors as private. In addition, a private static member is created as the same type of the class, along with a public static member that returns an instance of the class. Here is a basic example:
+
+[] What is boxing?
+	Boxing is the process of explicitly converting a value type into a corresponding reference type. Basically, this involves creating a new object on the heap and placing the value there. Reversing the process is just as easy with unboxing, which converts the value in an object reference on the heap into a corresponding value type on the stack. The unboxing process begins by verifying that the recipient value type is equivalent to the boxed type. If the operation is permitted, the value is copied to the stack.
+
+Q: Write a function to compress (encode) input string such that there are no repeated characters in the output string and repetition is replaced with count. Output must contain all unique characters from input string followed by count and characters are shown in same order as input string.
+
+Conditions: 
+1. You can only loop through input string ONCE and ONLY ONCE
+2. Output string shows characters in same order as input string
+
+Examples:  abc ---> a1b1c1
+           aabc --> a2b1c1
+           aabcac --> a3b1c2
+           zabcazbbb --> z2a2b4c1
+
+String EncodeString( string str)
+{
+	string result;
+
+	//YOUR CODE HERE
+
+	return result;	
+}
+
+
+void Main()
+{
+   string result = EncodeString("zabcazbbb");
+}

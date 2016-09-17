@@ -9,8 +9,12 @@
   </head>
   <body>
   	<%= render "header" %>
-	<%= render "aside" %>
-    <%= yield %>
-	<%= render "footer" %> 
+	  <%= render "aside" %>
+    
+    <!-- yield is for the page to be inserted here -->
+    <div id="page">
+      <%= yield %>
+    </div>
+	  <%= render "footer" %> 
   </body>
 </html>

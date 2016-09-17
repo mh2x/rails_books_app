@@ -1,0 +1,44 @@
+
+
+// sass css makes it like a programming language
+// look at sass cool functions here: http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+$primary-color: #febd69;
+$secondary-color: #1f2f40;
+* {
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+#page {
+	padding-left: 32px;
+}
+header#page-header{
+	padding: 5px;
+	color: $primary-color;
+	background-color: $secondary-color;
+	border-bottom: 9px solid darken($primary-color, 10%);
+
+	//Only sass lets you do this
+	h1 {
+		text-align: center;
+	}
+}
+
+//This is typical css
+header#page-header h1{
+	text-transform: uppercase;
+}
+
+footer#page-footer{
+padding: 2px;
+color: $primary-color;
+background-color: $secondary-color;
+text-align: center;
+border-top: 9px solid lighten($secondary-color, 10%);
+}
+
+aside#sidebar{
+	float: right; 
+	background: $primary-color; 
+	padding-right: 15px;
+}
