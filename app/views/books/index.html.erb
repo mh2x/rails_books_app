@@ -5,7 +5,7 @@
 		<li>Jungle book</li>
 		<li>Tarzan</li>
 		<li>The iron giant</li>	
-</ul> -->
+</ul> 
 
 <h2>test</h2>
 
@@ -23,29 +23,32 @@
 	   <li> <%= book %></li>
 	<% end %>
 </ul>
-
 <%= link_to("Add new book...", new_book_path) %>
 
 <h1> The following list comes from MySQL DB</h1>
+-->
 
 
-<table>
+
+<table class="book-table">
   <tr>
-    <th>Book Title</th>
+    <th>Cover</th>
+	<th>Book Title</th>
     <th>Rating</th> 
     <th>Gross</th>
     <th>Released On</th>
     <th>Description</th>
-    
+    <th>Page Count</th>
   </tr>
  	<% @books2.each do |book2| %>
-	   <tr> 
-	   	<td><h3><%= link_to(book2.title, book_path(book2)) %></h3></td>
+	   <tr class="book"> 
+	   	<!--<td><%= image_tag(image_for(book2), height:"128") %></td>-->
+		<td><%= image_tag(image_for(book2)) %></td>	
+		<td><h3><%= link_to(book2.title, book_path(book2)) %></h3></td>
 	   	<td><%= book2.rating %></td>
 	   	<td>$<%= book2.total_gross %></td>
 	   	<td><%= book2.released_on %></td>
 	   	<td><%= book2.description %></td>
-		<td><%= image_tag(image_for(book2), height:"128") %></td>	
 		<td>Page Count:<%=book2.page_count %></td>   
 	   </tr>
 	<% end %>

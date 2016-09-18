@@ -1,3 +1,31 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "colors";
+
+.book 
+{
+    img 
+    {
+        float: left;
+        margin: 0 15px;
+        border: 3px solid $primary_color;
+        width: 164px;
+    }
+}
+
+.book-table
+{
+    th 
+    {
+        background-color: lighten($secondary_color, 10%);
+        color: white;
+    }
+
+    th, td 
+    {
+            border-bottom: 1px solid $primary_color;
+            padding: 16px;
+    }
+}
