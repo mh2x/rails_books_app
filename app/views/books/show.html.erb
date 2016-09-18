@@ -6,7 +6,9 @@
    	<li>Gross:   $<%= @book.total_gross %></li>
    	<li>Release Date:   <%= @book.released_on %></li>
    	<li>Description:   <%= @book.description %></li>
-   	<li>Cover:  <%= @book.img_file_name %></li>
+   	<li>Cover:  <%= @book.img_file_name %>
+	   <%= image_tag(image_for(@book)) %>	
+	</li>
    	<li>Page Count:  <%= @book.page_count %></li>   	
 </ul>
 

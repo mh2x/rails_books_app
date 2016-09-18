@@ -45,6 +45,8 @@
 	   	<td>$<%= book2.total_gross %></td>
 	   	<td><%= book2.released_on %></td>
 	   	<td><%= book2.description %></td>
+		<td><%= image_tag(image_for(book2), height:"128") %></td>	
+		<td>Page Count:<%=book2.page_count %></td>   
 	   </tr>
 	<% end %>
 </table>

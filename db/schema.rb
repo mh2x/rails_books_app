@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20160911230620) do
     t.string   "title"
     t.string   "rating"
     t.decimal  "total_gross"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.text     "description"
     t.date     "released_on"
-    t.string   "img_file_name"
+    t.string   "img_file_name", default: ""
     t.decimal  "page_count"
   end
 

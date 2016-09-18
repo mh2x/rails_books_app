@@ -18,7 +18,7 @@ class BooksController < ApplicationController
 		#puts (params[:id])
 		#puts (params[:movie])
 		@book = Book.find(params[:id])
-		book_params = params.require(:book).permit(:title, :description, :rating, :released_on, :total_gross)
+		book_params = params.require(:book).permit(:title, :description, :rating, :released_on, :total_gross, :img_file_name, :page_count)
 		@book.update(book_params)
 		
 		#after update, go back to original object
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
 		@book = Book.new
 	end
 	def create
-		book_params = params.require(:book).permit(:title, :description, :rating, :released_on, :total_gross)
+		book_params = params.require(:book).permit(:title, :description, :rating, :released_on, :total_gross, :img_file_name, :page_count)
 		@book = Book.new(book_params)
 		@book.save
 		redirect_to @book
@@ -39,7 +39,5 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book.destroy
 		redirect_to books_path
-
 	end
-
 end
