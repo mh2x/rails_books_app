@@ -11,4 +11,26 @@ Rails.application.routes.draw do
  #update
  # patch "books/:id" => "books#update"
 
+# we added this from the command-line:
+# rails g resource Review name:string starts:integer comment:text book:references --no-test-framework
+# Output is:
+# Running via Spring preloader in process 8592
+#       invoke  active_record
+#       create    db/migrate/20160925230948_create_reviews.rb
+#       create    app/models/review.rb
+#       invoke  controller
+#       create    app/controllers/reviews_controller.rb
+#       invoke    erb
+#       create      app/views/reviews
+#       invoke    helper
+#       create      app/helpers/reviews_helper.rb
+#       invoke    assets
+#       invoke      coffee
+#       create        app/assets/javascripts/reviews.coffee
+#       invoke      scss
+#       create        app/assets/stylesheets/reviews.scss
+#       invoke  resource_route
+#        route    resources :reviews
+  resources :reviews
+
 end
