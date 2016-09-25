@@ -8,16 +8,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  	<%= render "header" %>
+  	<%= render "layouts/header" %>
 
     <%= flash[:notice] %>
-    
-	  <%= render "aside" %>
+
+	  <%= render "layouts/aside" %>
     
     <!-- yield is for the page to be inserted here -->
     <div id="page">
       <%= yield %>
     </div>
-	  <%= render "footer" %> 
+	  <%= render "layouts/footer" %> 
   </body>
 </html>
