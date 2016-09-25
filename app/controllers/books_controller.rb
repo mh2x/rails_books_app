@@ -19,10 +19,13 @@ class BooksController < ApplicationController
 		#puts (params[:movie])
 		@book = Book.find(params[:id])
 		book_params = params.require(:book).permit(:title, :description, :rating, :released_on, :total_gross, :img_file_name, :page_count)
-		@book.update(book_params)
-		
-		#after update, go back to original object
-		redirect_to @book
+		if @book.update(book_params)
+			#after update, go back to original object
+			flash[:notice] = "Successfully Updated!"
+			redirect_to @book
+		else
+			render :edit
+		end
 	end
 	def new
 		#this shows the form to create a new resource
@@ -31,13 +34,23 @@ class BooksController < ApplicationController
 	def create
 		book_params = params.require(:book).permit(:title, :description, :rating, :released_on, :total_gross, :img_file_name, :page_count)
 		@book = Book.new(book_params)
-		@book.save
-		redirect_to @book
+		if @book.save
+			flash[:notice] = "Successfully Created!"
+			redirect_to @book
+		else
+			#flash[:alert] = "You haz errors!"
+			#render :new, :alert => "Errors!"
+			render :new
+		end
 	end
 	def destroy
 
 		@book = Book.find(params[:id])
-		@book.destroy
-		redirect_to books_path
-	end
+		if @book.destroy
+			flash[:notice] = "Successfully Destroyed!"
+			redirect_to books_path
+		else
+			redirect_to @boook
+		end
+	end	
 end

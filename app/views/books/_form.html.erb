@@ -1,4 +1,7 @@
 <%= form_for(@book) do |f| %>
+<div class="error">
+	<%= @book.errors.full_messages.to_sentence %>
+</div>
 
 	<p>
 		<%= f.label :title %> 
@@ -11,8 +14,13 @@
 	</p>
 
 	<p>
+		<!--
 		<%= f.label :rating %> 
-		<%= f.text_field :rating, size:5 %>	
+		<%= f.text_field :rating, size:5 %>
+		-->
+		<%= f.select :rating, 
+			Book::RATINGS, 
+			prompt: "Pick a rating" %>	
 	</p>
 
 
