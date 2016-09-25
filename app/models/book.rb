@@ -1,5 +1,8 @@
 class Book < ApplicationRecord
 
+	#Define 1-to-many relationship here!
+	has_many :reviews, dependent: :destroy
+	
 	#Validation comma-separated fields, condition
 	#more details here: http://guides.rubyonrails.org/active_record_validations.html
 	# in this example, we want to make sure they have values
