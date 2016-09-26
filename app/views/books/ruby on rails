@@ -230,3 +230,8 @@ rails db:rollback
 5. Changing layouts - adding headers and footers
 
 
+
+deployment:
+1. modify Gemfile
+2. run inside project folder:
+    bundle install --without production
