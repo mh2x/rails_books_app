@@ -1,0 +1,32 @@
+
+<header id="content-header">
+    <h1> New Review for <%= link_to(@book.title, @book) %></h1>
+</header>
+
+<%= form_for([@book, @review]) do |f| %>
+	<div class="error">
+		<%= @review.errors.full_messages.to_sentence %>
+	</div>
+		
+		<p>
+			<%= f.label :name %> 
+			<%= f.text_field :name %>	
+		</p>
+
+		<p>
+			<%= f.label :comment %><br> 
+			<%= f.text_area :comment, cols: 40, rows: 7 %>	
+		</p>
+
+		<p>
+			<%= f.label :stars %><br> 
+			<%= f.select :stars, 
+				Review::STARS, 
+				prompt: "Pick a rating" %>	
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+<%= link_to("Cancel", book_path(@book)) %>
+

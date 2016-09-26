@@ -1,2 +1,18 @@
 
-<h1> My Reviews are coming! </h1>
+<header id="content-header">
+    <h1> Reviews for <%= link_to(@book.title, @book) %></h1>
+</header>
+
+<ol>
+    <% @reviews.each do |review| %>
+        <li>
+            <p>
+                <%= pluralize(review.stars, 'star') %> by <%= review.name %>:
+            </p>
+            <p>
+                <%= review.comment %>
+            </p>
+        </li>      
+    <% end %>    
+</ol>
+
